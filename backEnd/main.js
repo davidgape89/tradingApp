@@ -1,34 +1,35 @@
-var http = require('http');
-var socketjs = require('socket.js');
+var app = require('express')();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
-// start an http server
-var server = http.createServer();
-server.listen(3000, function() {
-  console.log('Listening on port 3000.');
+var currencies = [
+  {"pair":"USD CHF", "buy":0.99143, "sell":0.99043},
+  {"pair":"GBP USD", "buy":1.28495, "sell":1.2836},
+  {"pair":"GBP CHF", "buy":1.27378, "sell":1.27147},
+  {"pair":"EUR SEK", "buy":9.632, "sell":9.6055},
+  {"pair":"USD JPY", "buy":110.467, "sell":110.417},
+  {"pair":"EUR JPY", "buy":120.589, "sell":120.491}
+];
+
+app.get('/', function(req, res){
+  res.sendFile(__dirname + '/index.html');
 });
 
-socketjs(server, function(socket, reconnectData) {
-  // if we get disconnected and subsequently reconnect, the client can pass data here
-  if (reconnectData === null) {
-    console.log('A user connected.');
-  } else {
-    console.log('A user reconnected with: ' + JSON.stringify(reconnectData) + '.');
-  }
+io.on('connection', function(socket){
+  socket.emit('message', currencies);
 
-  // log messages as they arrive
-  socket.receive('greeting', function(message) {
-    console.log('Received: ' + JSON.stringify(message));
-  });
-
-  // periodically send messages to the client
   var interval = setInterval(function() {
-    socket.send('greeting', 'Hello from the server!');
+      currencies.forEach((currency) => {
+        if(parseInt(Math.random()*10, 10)){
+          var difference = Math.random() < 0.5 ? -0.1 : 0.1;
+          currency.buy = currency.buy + difference;
+          currency.sell = currency.sell + difference;
+        }
+      });
+      socket.emit('message', currencies);
   }, 1000);
+});
 
-  // if the client disconnects, stop sending messages to it
-  socket.close(function() {
-    console.log('A user disconnected.');
-
-    clearInterval(interval);
-  });
+http.listen(3000, function(){
+  console.log('listening on *:3000');
 });
