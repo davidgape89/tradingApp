@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { WebSocketService } from './services/webSocket.service';
 import { AppComponent } from './app.component';
 import { CurrencyPanelComponent } from './components/currencyPanel.component';
+import { CurrenciesService } from './services/currencies.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CurrencyPanelComponent } from './components/currencyPanel.component';
     BrowserModule
   ],
   providers: [
-    WebSocketService
+    WebSocketService,
+    CurrenciesService
   ],
   bootstrap: [AppComponent]
 })

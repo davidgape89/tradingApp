@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {WebSocketService} from '../services/webSocket.service';
+import { CurrenciesService } from '../services/currencies.service';
+import { CurrencyPair } from '../models/CurrencyPair.interface';
 
 @Component({
     selector: 'currency-panel',
@@ -7,13 +8,19 @@ import {WebSocketService} from '../services/webSocket.service';
     styleUrls: ['./currencyPanel.component.scss']
 })
 export class CurrencyPanelComponent implements OnInit {
+    public currencies: CurrencyPair[];
 
-    constructor(private webSocketService: WebSocketService) { 
-
+    constructor(private _currenciesService: CurrenciesService) { 
     }
 
     ngOnInit() {
-        console.log('This is onInit');
+        this._currenciesService.getCurrencies().subscribe(
+            (currencies) => this._onNewCurrencyMessage(currencies)
+        );
+    }
+
+    private _onNewCurrencyMessage(currencies: CurrencyPair[]) {
+        this.currencies = currencies;
     }
 
 }
