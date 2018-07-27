@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { WebSocketService } from './services/webSocket.service';
 import { AppComponent } from './app.component';
-import { CurrencyPanelComponent } from './components/currencyPanel.component';
+import { CurrencyPanelComponent } from './components/currencyPanel/currencyPanel.component';
 import { CurrenciesService } from './services/currencies.service';
+import { PriceTagComponent } from './components/priceTag/priceTag.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencyPanelComponent
+    CurrencyPanelComponent,
+    PriceTagComponent
   ],
   imports: [
     BrowserModule

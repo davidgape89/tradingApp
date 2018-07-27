@@ -1,0 +1,10 @@
+.currency-panels {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+    currency-panel {
+        border-radius: 3px;
+        margin: 10px;
+    }
+}
