@@ -8,12 +8,8 @@ var currencies = [
   {"pair":"GBP CHF", "buy":1.27378, "sell":1.27147},
   {"pair":"EUR SEK", "buy":9.632, "sell":9.6055},
   {"pair":"USD JPY", "buy":110.467, "sell":110.417},
-  {"pair":"EUR JPY", "buy":120.589, "sell":120.491}
+  {"pair":"EUR JPY", "buy":20120.589, "sell":120.491}
 ];
-
-app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
-});
 
 io.on('connection', function(socket){
   socket.emit('message', currencies);
@@ -22,8 +18,8 @@ io.on('connection', function(socket){
       currencies.forEach((currency) => {
         if(parseInt(Math.random()*10, 10)){
           var difference = Math.random() < 0.5 ? -0.1 : 0.1;
-          currency.buy = currency.buy + difference;
-          currency.sell = currency.sell + difference;
+          currency.buy = currency.buy + currency.buy * difference;
+          currency.sell = currency.sell + currency.sell * difference;
         }
       });
       socket.emit('message', currencies);
@@ -31,5 +27,5 @@ io.on('connection', function(socket){
 });
 
 http.listen(3000, function(){
-  console.log('listening on *:3000');
+  console.log('listening on localhost:3000');
 });
