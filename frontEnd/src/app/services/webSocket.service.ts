@@ -6,22 +6,20 @@ import { Observable, Subject } from 'rxjs';
 @Injectable({
     providedIn: 'root',
 })
-export class WebSocketService<T> {
-    public incomingMessages$: Observable<T>;
-    private _socket: io.Socket;
+export class WebSocketService {
+    private _socket: any;
 
     constructor() {
-        this.incomingMessages$ = new Subject<T>();
     }
 
     public connect(serverUrl: string) {
-        this._socket = io(serverUrl);
+        this._socket = io(serverUrl);        
+    }
 
-        this.incomingMessages$ = Observable.create(
-            (subject) => this._socket.on('message', (message) => {
-                subject.next(message)
-        }));
-        
+    public getIncomingMessages() {
+        return Observable.create((subject) => this._socket.on('message', (message) => 
+            subject.next(message)
+        ));
     }
 
 }
