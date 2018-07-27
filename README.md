@@ -1,26 +1,24 @@
 # TradingApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+This project is a currency dashboard that will show the different currency pairs and if they are in an upwards trend or downwards.
+Since testing with some real data was required, both a backend and a frontend were created, the backend using NodeJS and the frontend using Angular 6 CLI. In order to see the results the backend needs to be started first, and after that the front end.
 
-## Development server
+## Backend development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Go to the backend folder, first run `npm install` for it to install the dependencies, and then run `node main.js`. That will start a server listening in `http://localhost:3000`.
 
-## Code scaffolding
+## Frontend development server
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Go to the frontEnd folder, run `npm install` to install the dependencies and after that, run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Build
+## Frontend Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Go to the frontEnd folder and run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+## Running front-end unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Go to the frontEnd folder and run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## Further help
 
