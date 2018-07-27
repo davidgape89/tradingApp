@@ -1,0 +1,22 @@
+<div class="currency-panel">
+    <h3>{{currency.pair}}</h3>
+    <div class="price-tags">
+        <price-tag
+            class="sell-price-tag"
+            [action]="'Sell'"
+            [price]="currency.sell"
+            [currency]="priceCurrency">
+        </price-tag>
+        <div class="tendency"
+            [ngClass]="{
+                up: isTendencyUpwards, 
+                down: isTendencyDownwards}">
+            </div>
+        <price-tag
+            class="buy-price-tag"
+            [action]="'Buy'"
+            [price]="currency.buy"
+            [currency]="priceCurrency">
+        </price-tag>
+    </div>
+</div>

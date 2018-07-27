@@ -1,0 +1,75 @@
+.currency-panel {
+    display: grid;
+    font-family: Arial, Helvetica, sans-serif;
+    grid-template-columns: 18rem;
+
+    h3 {
+        background-color: #778899;
+        margin: 0px;
+        text-align: center;
+    }
+
+    .price-tags {
+        background-color: #D3D3D3;
+        display: grid;
+        grid-template-columns: 1fr 10px 1fr;
+    }
+
+
+    price-tag {
+        display: flex;
+        margin: 5px 10px;
+        border: solid #696969 1px;
+        border-radius: 3px;
+        box-sizing: border-box;
+
+        &:hover {
+            color: white;
+            border: solid #33FFFF 2px;
+            margin: 4px 9px;
+        }
+    }
+
+    .sell-price-tag { 
+        color: #FF3355;
+
+        &:hover {
+            background-color: #FF3355;
+        }
+    }
+
+    .buy-price-tag {
+        justify-content: flex-end;
+        color: #0F892F;
+
+        &:hover {
+            background-color: #0F892F;
+        }
+
+        ::ng-deep {
+            .currency {
+                justify-content: flex-end;
+            }
+        }
+    }
+    
+    .tendency {
+        width: 0; 
+        height: 0; 
+        transform: rotateY(180deg);
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 10px solid transparent;
+        margin-top: 5px;
+    
+        &.down {
+            border-top-color: red;
+        }
+    
+        &.up {
+            transform: rotate(180deg);
+            border-top-color: green;
+        }
+    }
+}
+
