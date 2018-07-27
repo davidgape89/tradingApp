@@ -5,6 +5,7 @@
 
     h3 {
         background-color: #778899;
+        color: white;
         margin: 0px;
         text-align: center;
     }
@@ -20,7 +21,7 @@
         display: flex;
         margin: 5px 10px;
         border: solid #696969 1px;
-        border-radius: 3px;
+        border-radius: 5px;
         box-sizing: border-box;
 
         &:hover {
@@ -32,6 +33,9 @@
 
     .sell-price-tag { 
         color: #FF3355;
+        border-radius: 50px / 30px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
 
         &:hover {
             background-color: #FF3355;
@@ -41,6 +45,9 @@
     .buy-price-tag {
         justify-content: flex-end;
         color: #0F892F;
+        border-radius: 50px / 30px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
 
         &:hover {
             background-color: #0F892F;

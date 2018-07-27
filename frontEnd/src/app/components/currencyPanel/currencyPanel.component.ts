@@ -22,7 +22,7 @@ export class CurrencyPanelComponent implements OnChanges {
     ngOnChanges(changes) {
         if(!changes.currency.previousValue || !changes.currency.currentValue)
             return;
-        console.log(changes);
+
         const prev = changes.currency.previousValue,
             current = changes.currency.currentValue;
 
