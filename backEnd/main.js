@@ -22,7 +22,9 @@ io.on('connection', function(socket){
           currency.sell = currency.sell + currency.sell * difference;
         }
       });
-      socket.emit('message', currencies);
+      socket.emit('message', {
+        currencies: currencies
+      });
   }, 1000);
 });
 
