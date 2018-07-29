@@ -17,7 +17,7 @@ io.on('connection', function(socket){
   var interval = setInterval(function() {
       currencies.forEach((currency) => {
         if(parseInt(Math.random()*10, 10)){
-          var difference = Math.random() < 0.5 ? -0.1 : 0.1;
+          var difference = Math.random() < 0.4 ? -0.1 : 0.1;
           currency.buy = currency.buy + currency.buy * difference;
           currency.sell = currency.sell + currency.sell * difference;
         }
