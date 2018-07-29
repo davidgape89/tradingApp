@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   private _onNewCurrencyMessage(currencies: CurrencyPair[]) {
+      this.connectionError = false;
       this.currencies = currencies;
   }
   
