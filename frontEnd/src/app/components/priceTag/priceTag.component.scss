@@ -2,7 +2,6 @@
     border: .2rem;
     display: inherit;
     flex-direction: column;
-    padding: .5rem;
 
     .currency {
         display: flex;
@@ -23,6 +22,10 @@
 
         :nth-child(2) {
             font-size: 2.5rem;
+        }
+
+        :nth-child(3) {
+            margin-right: .3rem;
         }
     }
 }
