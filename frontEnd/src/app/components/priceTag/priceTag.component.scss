@@ -1,28 +1,28 @@
 .price-tag {
-    border: 2px;
+    border: .2rem;
     display: inherit;
     flex-direction: column;
-    padding: 5px;
+    padding: .5rem;
 
     .currency {
         display: flex;
         flex-direction: row;
-        font-size: 10px;
-        margin: 5px;
+        font-size: 1rem;
+        margin: .5rem;
     }
 
     .price {
         display: flex;
         flex-direction: row;
-        font-size: 14px;
+        font-size: 1.4rem;
         
         :nth-child(1) {
             align-self: flex-end;
-            margin: 3px;
+            margin: .3rem;
         }
 
         :nth-child(2) {
-            font-size: 25px;
+            font-size: 2.5rem;
         }
     }
 }
