@@ -1,5 +1,3 @@
-import * as ioSocketClient from 'socket.io-client';
-
 import { WebSocketService } from './webSocket.service';
 import { Injectable } from "@angular/core";
 import { CurrencyPair } from '../models/CurrencyPair.interface';

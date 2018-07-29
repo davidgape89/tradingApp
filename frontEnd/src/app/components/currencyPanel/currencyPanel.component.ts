@@ -1,5 +1,4 @@
 import {Component, Input, OnChanges} from '@angular/core';
-import { CurrenciesService } from '../../services/currencies.service';
 import { CurrencyPair } from '../../models/CurrencyPair.interface';
 
 @Component({
