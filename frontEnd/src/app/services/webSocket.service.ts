@@ -1,7 +1,7 @@
 import * as io from 'socket.io-client';
 
 import { Injectable } from "@angular/core";
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, throwError } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
@@ -17,9 +17,15 @@ export class WebSocketService {
     }
 
     public getIncomingMessages() {
-        return Observable.create((subject) => this._socket.on('message', (message) => 
-            subject.next(message)
-        ));
+        return Observable.create((subject: Subject<any>) => {
+            this._socket.on('message', (message) => 
+                subject.next(message)
+            );
+
+            this._socket.on('connect_error', (message) => {
+                subject.error(message);
+            });
+        });
     }
 
 }

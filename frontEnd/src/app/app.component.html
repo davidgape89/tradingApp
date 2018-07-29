@@ -5,3 +5,7 @@
         [currency]="currency">
     </currency-panel>
 </div>
+<div *ngIf="connectionError"
+    class="error-message">
+    Could not connect to the server!
+</div>

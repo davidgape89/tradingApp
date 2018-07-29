@@ -9,6 +9,7 @@ import { CurrencyPair } from './models/CurrencyPair.interface';
 })
 export class AppComponent implements OnInit {
   public currencies: CurrencyPair[];
+  public connectionError: boolean = false;
 
   constructor(private _currenciesService: CurrenciesService) {
 
@@ -16,7 +17,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
       this._currenciesService.getCurrencies().subscribe(
-          (currencies) => this._onNewCurrencyMessage(currencies)
+          (currencies) => this._onNewCurrencyMessage(currencies),
+          (error) => this.connectionError = true
       );
   }
 
