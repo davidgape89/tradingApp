@@ -1,19 +1,25 @@
+// Variables
+$red-color: #d42920;
+$green-color: #7b983c;
+
 .currency-panel {
     display: grid;
     font-family: Arial, Helvetica, sans-serif;
     grid-template-columns: 28rem;
 
-    h3 {
-        background-color: #778899;
+    h2 {
+        background-color: #6e6e6f;
         color: white;
         margin: 0;
+        padding: .4rem;
         text-align: center;
     }
 
     .price-tags {
-        background-color: #D3D3D3;
+        background-color: #f3f3f4;
         display: grid;
         grid-template-columns: 1fr 1rem 1fr;
+        padding-bottom: 2.4rem;
     }
 
 
@@ -23,6 +29,7 @@
         border: solid #696969 .1rem;
         border-radius: .5rem;
         box-sizing: border-box;
+        font-weight: bold;
 
         &:hover {
             color: white;
@@ -32,25 +39,25 @@
     }
 
     .sell-price-tag { 
-        color: #FF3355;
+        color: $red-color;
         border-radius: 5rem / 3rem;
         border-top-left-radius: .5rem;
         border-bottom-left-radius: .5rem;
 
         &:hover {
-            background-color: #FF3355;
+            background-color: lighten($red-color, 10%);
         }
     }
 
     .buy-price-tag {
         justify-content: flex-end;
-        color: #0F892F;
+        color: $green-color;
         border-radius: 5rem / 3rem;
         border-top-right-radius: .5rem;
         border-bottom-right-radius: .5rem;
 
         &:hover {
-            background-color: #0F892F;
+            background-color: lighten($green-color, 10%);
         }
 
         ::ng-deep {
